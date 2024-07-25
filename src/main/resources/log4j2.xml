@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" packages="be.axa">
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %p %c{1.} [%t] %m%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="TRACE" additivity="false">
+			<AppenderRef ref="STDOUT" />
+		</Root>
+	</Loggers>
+</Configuration>
