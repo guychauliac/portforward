@@ -16,9 +16,11 @@ public class PortForwardConfiguration {
             theReader = new BufferedReader( new InputStreamReader( new FileInputStream( new File( aFile ) ) ) );
             String theLine = null;
             while ( ( theLine = theReader.readLine() ) != null ) {
-                String[] theParts = theLine.split( ";" );
-                PortForward thePortForward = new PortForward( Integer.parseInt( theParts[ 0 ] ), theParts[ 1 ], Integer.parseInt( theParts[ 2 ] ) );
-                thePortForwards.add( thePortForward );
+                if ( !theLine.startsWith( "#" ) ) {
+                    String[] theParts = theLine.split( ";" );
+                    PortForward thePortForward = new PortForward( Integer.parseInt( theParts[ 0 ] ), theParts[ 1 ], Integer.parseInt( theParts[ 2 ] ) );
+                    thePortForwards.add( thePortForward );
+                }
             }
             return thePortForwards;
         } finally {
